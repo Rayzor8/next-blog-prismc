@@ -8,14 +8,14 @@
 				"value": "coffee",
 				"type": "Text"
 			},
-			"last_name": {
-				"__TYPE__": "FieldContent",
-				"value": "minute",
-				"type": "Text"
-			},
 			"tag_line": {
 				"__TYPE__": "FieldContent",
 				"value": "degree",
+				"type": "Text"
+			},
+			"last_name": {
+				"__TYPE__": "FieldContent",
+				"value": "weight",
 				"type": "Text"
 			}
 		},
