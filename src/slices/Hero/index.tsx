@@ -5,7 +5,7 @@ import { Content, KeyTextField } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { gsap } from "gsap";
 import Bounded from "@/ui/Bounded";
-import Shapes from './Shapes';
+import PlanetShape from './PlanetShape';
 
 /**
  * Props for `Hero`.
@@ -76,7 +76,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       ref={component}
     >
       <div className="grid min-h-[70vh] grid-cols-1 md:grid-cols-2 items-center">
-        <Shapes/>
+        <PlanetShape/>
         <div className="col-start-1 md:row-start-1">
           <h1
             className="mb-6 text-[clamp(3rem,16vmin,7rem)] font-extrabold leading-none tracking-wide"
