@@ -51,7 +51,7 @@ const Biography = ({ slice }: BiographyProps): JSX.Element => {
       ref={component}
     >
       <div className=" grid gap-x-8 gap-y-6 md:grid-cols-[2fr,1fr]">
-        <Heading as="h1" size="md" className="heading col-start-1">
+        <Heading as="h1" size="lg" className="heading col-start-1">
           {slice.primary.heading}
         </Heading>
 

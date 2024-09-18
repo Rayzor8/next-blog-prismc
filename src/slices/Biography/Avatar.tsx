@@ -26,7 +26,7 @@ export default function Avatar({ image, className }: AvatarProps) {
   }, []);
   return (
     <div className={clsx("relative w-full h-full", className)} ref={component}>
-      <div className="avatar aspect-square overflow-hidden rounded-full border-4 border-indigo-800 opacity-0 shadow-2xl">
+      <div className="avatar aspect-square overflow-hidden rounded-full border-4 border-slate-700 opacity-0 shadow-2xl">
         <PrismicNextImage
           field={image}
           className="avatar-image object-fill w-full h-full"
