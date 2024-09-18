@@ -24,4 +24,17 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  .text-theme{
+    @apply text-red-400
+  }
+
+  .bg-theme{
+    @apply bg-red-400
+  }
+
+  .gradient-theme{
+    @apply bg-gradient-to-tr from-blue-400 via-red-400 to-red-800
+  }
+
 }

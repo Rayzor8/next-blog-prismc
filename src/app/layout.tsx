@@ -19,9 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${urbanist.className} antialiased bg-slate-900 text-slate-100`}
-      >
+      <body className={`${urbanist.className} antialiased bg-slate-900`}>
         <Header />
         {children}
       </body>
