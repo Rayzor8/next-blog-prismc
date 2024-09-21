@@ -21,11 +21,14 @@ export default function ContentList({
   const urlPrefix = contentType === "Blog" ? "/blog" : "/project";
 
   useEffect(() => {
-    gsap.fromTo(
-      component.current,
-      { opacity: 0, y: 100 },
-      { opacity: 1, y: 0, ease: "power3.inOut", duration: 0.8, stagger: 0.1 }
-    );
+    const cxt = gsap.context(() => {
+      gsap.fromTo(
+        component.current,
+        { opacity: 0, y: 100 },
+        { opacity: 1, y: 0, ease: "power3.inOut", duration: 0.8, stagger: 0.1 }
+      );
+    }, component);
+    return () => cxt.revert();
   }, []);
 
   return (
