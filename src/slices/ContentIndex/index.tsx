@@ -1,10 +1,9 @@
-"use client";
-
-import useTitleAnimation from "@/hooks/useTitleAnimation";
 import Bounded from "@/ui/Bounded";
-import Heading from "@/ui/Heading";
 import { Content, isFilled } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import ContentList from "./ContentList";
+import TitleAnimation from "@/ui/TitleAnimation";
+import { createClient } from "@/prismicio";
 
 /**
  * Props for `ContentIndex`.
@@ -14,39 +13,34 @@ export type ContentIndexProps = SliceComponentProps<Content.ContentIndexSlice>;
 /**
  * Component for "ContentIndex" Slices.
  */
-const ContentIndex = ({ slice }: ContentIndexProps): JSX.Element => {
+const ContentIndex = async ({
+  slice,
+}: ContentIndexProps): Promise<JSX.Element> => {
+  const client = createClient();
+  const blogPosts = await client.getAllByType("blog_post");
+  const projects = await client.getAllByType("project");
 
-  const elementRef = useTitleAnimation({
-    selector: ".heading",
-    from: {
-      x: -100,
-      opacity: 0,
-      rotate: -10,
-    },
-    to: {
-      x: 0,
-      opacity: 1,
-      rotate: 0,
-    },
-    duration: 0.8,
-    stagger: 0.1,
-  });
+  const contentType = slice.primary.content_type || "Blog";
+
+  const items = contentType === "Blog" ? blogPosts : projects;
 
   return (
     <Bounded
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      ref={elementRef}
     >
-      <Heading size="lg" className="heading mb-8">
-        {slice.primary.heading}
-      </Heading>
-
+      <TitleAnimation>{slice.primary.heading}</TitleAnimation>
       {isFilled.richText(slice.primary.description) && (
         <div className="prose prose-xl prose-invert mb-10">
           <PrismicRichText field={slice.primary.description} />
         </div>
       )}
+
+      <ContentList
+        items={items}
+        contentType={contentType}
+        viewMoreText={slice.primary.view_more_text}
+      />
     </Bounded>
   );
 };
