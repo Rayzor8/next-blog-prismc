@@ -36,7 +36,7 @@ export default function ContentList({
       {items.map((item, index) => (
         <li key={index}>
           <Link
-            href={urlPrefix + "/" + item.id}
+            href={urlPrefix + "/" + item.uid}
             className="flex flex-col justify-between md:items-center text-slate-200 border-t border-slate-100 py-4 md:py-6 px-2 md:flex-row hover:bg-slate-800 transition-colors gap-4 md:gap-0"
             aria-label={item.data.title ?? "View More"}
           >

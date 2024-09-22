@@ -85,7 +85,7 @@ export default function NavBar({
             <Button
               linkField={settings.data.cta_link}
               label={settings.data.cta_label}
-              className="ml-3"
+              className="ml-3 text-slate-900"
             />
           </li>
         </div>
@@ -153,7 +153,7 @@ function DesktopMenu({
         <Button
           linkField={settings.data.cta_link}
           label={settings.data.cta_label}
-          className="ml-3"
+          className="ml-3 text-slate-900"
         />
       </li>
     </div>

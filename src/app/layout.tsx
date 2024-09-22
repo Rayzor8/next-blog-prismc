@@ -24,6 +24,7 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer/>
+        <div className="absolute inset-0 -z-50 max-h-screen background-gradient"></div>
       </body>
     </html>
   );
