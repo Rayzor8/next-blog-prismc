@@ -18,7 +18,7 @@ export default function ContentList({
   viewMoreText = "Read More",
 }: ContentListProps) {
   const component = useRef(null);
-  const urlPrefix = contentType === "Blog" ? "/blog" : "/project";
+  const urlPrefix = contentType === "Blog" ? "/blog" : "/projects";
 
   useEffect(() => {
     const cxt = gsap.context(() => {
@@ -30,6 +30,7 @@ export default function ContentList({
     }, component);
     return () => cxt.revert();
   }, []);
+  
 
   return (
     <ul className="grid border-b border-slate-100" ref={component}>
@@ -42,7 +43,7 @@ export default function ContentList({
           >
             <div className="space-y-4">
               <span className="text-lg">{item.data.title}</span>
-              <div className="space-x-2">
+              <div className="flex gap-2 flex-wrap">
                 {item.tags.map((tag, index) => (
                   <span
                     key={index}

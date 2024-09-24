@@ -5,6 +5,7 @@ import Heading from "@/ui/Heading";
 import { formatDate } from "@/utils/formateDate";
 import { Content } from "@prismicio/client";
 
+
 type Page = { page: Content.BlogPostDocument | Content.ProjectDocument };
 
 export default function ContentBody({ page }: Page) {
@@ -16,7 +17,7 @@ export default function ContentBody({ page }: Page) {
           {page.data.title}
         </Heading>
 
-        <div className="space-x-2 mt-6">
+        <div className="flex gap-2 flex-wrap mt-6">
           {page.tags.map((tag, index) => (
             <span
               key={index}
@@ -31,7 +32,7 @@ export default function ContentBody({ page }: Page) {
           {formattedDate}
         </p>
 
-        <div className="prose prose-base-lg prose-invert mt-10  md:mt-18 w-full max-w-none">
+        <div className="prose prose-base prose-invert mt-10  md:mt-18 w-full max-w-none">
           <SliceZone slices={page.data.slices} components={components} />
         </div>
       </div>
